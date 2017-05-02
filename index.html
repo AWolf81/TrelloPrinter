@@ -447,7 +447,7 @@ function showData(data){
 
     if (data.desc) {
         data.isCard = true;
-        data.desc = mark(data.desc); // we're on a card --> parse markdown
+        data.desc = marked(data.desc); // we're on a card --> parse markdown
     }
 
     $('#out').html(Mustache.render(template, data))
