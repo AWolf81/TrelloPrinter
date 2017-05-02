@@ -93,7 +93,8 @@
   </div>
 </nav>
 <div id="out" class="container">
-  <p class="alert alert-info">Please load file...</a>
+  <p id="msg" class="alert alert-info hidden">Please load file...</a>
+
 </div>
 
 
@@ -514,6 +515,8 @@ $(document).ready( function(){
         $.getJSON(jsonUrl, function(data) {
             showData(eatData(data));
         });
+    } else {
+        $('#msg').show(); // show load file message
     }
 
     // @todo get data from header --> e.g. data passed to GET request with data in header
