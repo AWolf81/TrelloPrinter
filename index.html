@@ -93,13 +93,14 @@
 
 
 <script type="text/html" id="template-output" >
-<div class="container-fluid">
+<div class="container">
 {{#isCard}}
     <!-- if there is a description we're showing a card -->
     <div class="row">
-        <h1>{{board}}</h1>
-        <div>{{{desc}}}</div>
-
+        <div class="panel panel-default">
+            <div class="panel-heading">{{board}}</div>
+            <div class="panel-body">{{{desc}}}</div>
+        </div>
     </div>
 {{/isCard}}
 <div class="row col-md-12">
