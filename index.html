@@ -213,6 +213,7 @@ var sort_by = function(field, reverse, primer){
  function eatData(trelloJson){
 	var data = {
                     board: trelloJson.name
+                    desc: trelloJson.desc,
                     ,
                     lists: []
                     ,
@@ -463,7 +464,6 @@ function readSingleFile(e) {
     var reader = new FileReader();
     reader.onload = function(e) {
         var contents = e.target.result;
-        console.log('reader', contents);
         showData(eatData(JSON.parse(contents)));
     };
     reader.readAsText(file);
