@@ -203,6 +203,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.0/marked.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
 var sort_by = function(field, reverse, primer){
 
     var key = primer ?
@@ -494,6 +504,17 @@ function updateActionHighlights() {
 }
 
 $(document).ready( function(){
+
+    // load json from URL passed
+    var jsonUrl = getParameterByName('url'); // url passed to page /?url=http://.../test.json
+    if (jsonUrl) {
+        $.getJSON(jsonURL, function(data) {
+            showData(data);
+        });
+    }
+
+    // @todo get data from header --> e.g. data passed to GET request with data in header
+    // power-up could do this directly --> not implemented yet
 
     $('#file-input').change(function(e){readSingleFile(e);});
 
