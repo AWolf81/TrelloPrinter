@@ -94,6 +94,14 @@
 
 <script type="text/html" id="template-output" >
 <div class="container-fluid">
+#isCard
+<!-- if there is a description we're showing a card -->
+<div class="row">
+    <h1>{{name}}</h1>
+    <div>{{desc}}</div>
+    
+</div>
+{{/isCard}}
 <div class="row col-md-12">
 {{#lists}}
     <div id="{{id}}" style="page-break-after: always" {{#closed}}class="hidden"{{/closed}}{{^closed}}class="row"{{/closed}}>
@@ -436,6 +444,12 @@ var sort_by = function(field, reverse, primer){
 function showData(data){
     var template = $('#template-output').html()
     console.log(JSON.stringify(data,null,2))
+
+    if (data.desc) {
+        data.isCard = true;
+        data.desc = mark(data.desc); // we're on a card --> parse markdown
+    }
+
     $('#out').html(Mustache.render(template, data))
 	updateComments($("input[name='comments']:checked").val())
 	updateActionHighlights()
