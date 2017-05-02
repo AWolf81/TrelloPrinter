@@ -463,7 +463,7 @@ function readSingleFile(e) {
     var reader = new FileReader();
     reader.onload = function(e) {
         var contents = e.target.result;
-
+        console.log('reader', contents);
         showData(eatData(JSON.parse(contents)));
     };
     reader.readAsText(file);
