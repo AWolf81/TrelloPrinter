@@ -81,7 +81,8 @@
   </style>
 </head>
 <body>
-<div class="no-print">
+<a href="#loadForm" data-toggle="collapse">Load file...</a>
+<div id="loadForm" class="no-print collapse in">
     <input type="file" id="file-input" /><br />
     <input type="radio" name="comments" value="last" checked>Last Comment</input>
     <input type="radio" name="comments" value="all">All Comments</input><br />
@@ -96,7 +97,7 @@
 <div class="container">
 {{#isCard}}
     <!-- if there is a description we're showing a card -->
-    <div class="row col-md-12">
+    <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">{{board}}</div>
             <div class="panel-body">{{{desc}}}</div>
