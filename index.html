@@ -81,20 +81,24 @@
   </style>
 </head>
 <body>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#loadForm">Load file...</button>
-<div id="loadForm" class="no-print collapse">
-    <input type="file" id="file-input" /><br />
-    <input type="radio" name="comments" value="last" checked>Last Comment</input>
-    <input type="radio" name="comments" value="all">All Comments</input><br />
-    Highlight Date </input><input type="date" id="highlightDate" />
-</div>
-<div id="out">
-  Please load file...
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#loadForm">Load file...</button>
+      <div id="loadForm" class="no-print collapse">
+          <input type="file" id="file-input" /><br />
+          <input type="radio" name="comments" value="last" checked>Last Comment</input>
+          <input type="radio" name="comments" value="all">All Comments</input><br />
+          Highlight Date </input><input type="date" id="highlightDate" />
+      </div>
+  </div>
+</nav>
+<div id="out" class="container">
+  <p class="alert alert-info">Please load file...</a>
 </div>
 
 
 <script type="text/html" id="template-output" >
-<div class="container">
+<div>
 {{#isCard}}
     <!-- if there is a description we're showing a card -->
     <div class="row">
