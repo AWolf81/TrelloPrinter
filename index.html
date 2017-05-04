@@ -513,6 +513,7 @@ $(document).ready( function(){
     var jsonUrl = getParameterByName('url'); // url passed to page /?url=http://.../test.json
     if (jsonUrl) {
         $.getJSON(jsonUrl, function(data) {
+            console.log('input data', data);
             showData(eatData(data));
         });
     } else {
